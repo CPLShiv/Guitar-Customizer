@@ -158,6 +158,7 @@ public class GuitarCustomizer extends JFrame implements ActionListener {
 				if (e.getStateChange() == ItemEvent.SELECTED) {
 					metalBlueBtn.setVisible(true);
 					metalSilverBtn.setVisible(true);
+					charcoalBtn.setVisible(true);
 					rosewoodBtn.setVisible(false);
 				}
 			}
@@ -167,6 +168,7 @@ public class GuitarCustomizer extends JFrame implements ActionListener {
 				if (e.getStateChange() == ItemEvent.SELECTED) {
 					metalBlueBtn.setVisible(false);
 					metalSilverBtn.setVisible(false);
+					charcoalBtn.setVisible(true);
 					rosewoodBtn.setVisible(true);
 				}
 			}
