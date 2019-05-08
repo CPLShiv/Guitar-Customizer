@@ -156,6 +156,8 @@ public class GuitarCustomizer extends JFrame implements ActionListener {
 		stratBtn.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
 				if (e.getStateChange() == ItemEvent.SELECTED) {
+					metalBlueBtn.setVisible(true);
+					metalSilverBtn.setVisible(true);
 					rosewoodBtn.setVisible(false);
 				}
 			}
