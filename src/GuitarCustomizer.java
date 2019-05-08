@@ -153,6 +153,32 @@ public class GuitarCustomizer extends JFrame implements ActionListener {
 		startOverBtn.addActionListener(this);
 		exitBtn.addActionListener(this);
 		
+		stratBtn.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				if (e.getStateChange() == ItemEvent.SELECTED) {
+					rosewoodBtn.setVisible(false);
+				}
+			}
+		});
+		gibsBtn.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				if (e.getStateChange() == ItemEvent.SELECTED) {
+					metalBlueBtn.setVisible(false);
+					metalSilverBtn.setVisible(false);
+					rosewoodBtn.setVisible(true);
+				}
+			}
+		});
+		flyingBtn.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				if (e.getStateChange() == ItemEvent.SELECTED) {
+					metalBlueBtn.setVisible(true);
+					metalSilverBtn.setVisible(true);
+					charcoalBtn.setVisible(false);
+					rosewoodBtn.setVisible(false);
+				}
+			}
+		});
 	}
 	
 	private void buildBodyBox(int left) {
@@ -327,6 +353,15 @@ public class GuitarCustomizer extends JFrame implements ActionListener {
 		//Check if no fretboard wood is selected, handle
 		if (!mapleBtn.isSelected() && !ebonyBtn.isSelected() && !rosewoodBtn.isSelected()) {
 			JOptionPane.showMessageDialog(null, "Please select a fretboard wood.");
+			return false;
+		}
+		
+		//Check if more tone knobs than pickups
+		if (knob2Btn.isSelected() && pick1Btn.isSelected()) {
+			JOptionPane.showMessageDialog(null, "You cannot order more tone knobs than pickups.");
+			return false;
+		} else if (knob3Btn.isSelected() && pick2Btn.isSelected()) {
+			JOptionPane.showMessageDialog(null, "You cannot order more tone knobs than pickups.");
 			return false;
 		}
 		
