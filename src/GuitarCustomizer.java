@@ -156,9 +156,6 @@ public class GuitarCustomizer extends JFrame implements ActionListener {
 		stratBtn.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
 				if (e.getStateChange() == ItemEvent.SELECTED) {
-					metalBlueBtn.setVisible(true);
-					metalSilverBtn.setVisible(true);
-					charcoalBtn.setVisible(true);
 					rosewoodBtn.setVisible(false);
 				}
 			}
@@ -168,18 +165,22 @@ public class GuitarCustomizer extends JFrame implements ActionListener {
 				if (e.getStateChange() == ItemEvent.SELECTED) {
 					metalBlueBtn.setVisible(false);
 					metalSilverBtn.setVisible(false);
-					charcoalBtn.setVisible(true);
 					rosewoodBtn.setVisible(true);
+				}
+				if (e.getStateChange() == ItemEvent.DESELECTED) {
+					metalBlueBtn.setVisible(true);
+					metalSilverBtn.setVisible(true);
 				}
 			}
 		});
 		flyingBtn.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
 				if (e.getStateChange() == ItemEvent.SELECTED) {
-					metalBlueBtn.setVisible(true);
-					metalSilverBtn.setVisible(true);
 					charcoalBtn.setVisible(false);
 					rosewoodBtn.setVisible(false);
+				}
+				if (e.getStateChange() == ItemEvent.DESELECTED) {
+					charcoalBtn.setVisible(true);
 				}
 			}
 		});
